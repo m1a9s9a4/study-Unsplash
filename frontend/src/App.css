@@ -29,11 +29,13 @@ body p {
 .flexbox .item {
   position: relative;
   width: 33.33%;
+  padding: 20px;
 }
 .flexbox .item img {
   width: 100%;
   display: block;
   transition: all 0.8s;
+  border-radius: 10px;
 }
 .flexbox .item .title {
   position: absolute;
