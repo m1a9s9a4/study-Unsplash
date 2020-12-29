@@ -8,7 +8,7 @@ type Props = {
 const SearchInput: React.FC<Props> = ({handleKeyup}) => {
   return (
     <Form>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" onKeyUp={handleKeyup} />
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={handleKeyup} />
     </Form>
   )
 }

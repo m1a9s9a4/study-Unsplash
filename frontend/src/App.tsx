@@ -30,14 +30,18 @@ const getInitialImages = () => {
   ];
 }
 
-const filterImagesByTitle = (images: [Image], title: string) => {
-  console.log(title);
-  if (!title) {
-    return images;
+const hasLetter = (original: string, find: string) => {
+  return original.indexOf(find) >= 0;
+}
+
+const filterImagesByInput = (images: [Image], input: string) => {
+  const originalImages = getInitialImages();
+  if (!input) {
+    return originalImages;
   }
 
-  return images.filter((image: Image) => {
-    return image.title.indexOf(title) > 0;
+  return originalImages.filter((image: Image) => {
+    return hasLetter(image.title, input);
   })
 }
 
@@ -48,9 +52,10 @@ const App: React.FC = () => {
   }
 
   const handleKeyup = (element: any) => {
-    setKeyword(element.target.value);
+    const input = element.target.value;
+    setKeyword(input);
     //@ts-ignore
-    setImages(filterImagesByTitle(images, keyword));
+    setImages(filterImagesByInput(images, input));
   }
 
   return (
